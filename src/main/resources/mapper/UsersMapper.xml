@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mj.mapper.UsersMapper">
+    <select id="SelectUserAll" resultMap="com.mj.mapper.UsersMapper.UsersResult">
+        SELECT * FROM users u join department d on u.uDid = d.did
+    </select>
+    <resultMap type="com.mj.domain.DepartMent" id="DepartMentResult">
+        <id property="did" column="did"/>
+        <result property="dName" column="dName"/>
+        <result property="dUpName" column="dUpName"/>
+        <result property="dOne" column="dOne"/>
+        <result property="dRemark" column="dRemark"/>
+    </resultMap>
+    <resultMap type="com.mj.domain.Users" id="UsersResult">
+        <id property="uid" column="uid"/>
+        <result property="uName" column="uName"/>
+        <result property="uNumber" column="uNumber"/>
+        <result property="uPhone" column="uPhone"/>
+        <result property="uPosition" column="uPosition"/>
+        <result property="uInTime" column="uInTime"/>
+        <result property="uAge" column="uAge"/>
+        <result property="uStading" column="uStading"/>
+        <result property="uDid" column="uDid"/>
+        <result property="uIdentifi" column="uIdentifi"/>
+        <result property="uRemark" column="uRemark"/>
+        <result property="upassword" column="upassword"/>
+        <collection property="departMent" resultMap="com.mj.mapper.UsersMapper.DepartMentResult"></collection>
+    </resultMap>
+</mapper>

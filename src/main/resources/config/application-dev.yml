@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;database=K8
+    username: sa
+    password: sasa
+
+server:
+  port: 8098
+
+logging:
+  config: classpath:static\logback-spring.xml
+  level: debug
